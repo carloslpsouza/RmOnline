@@ -25,11 +25,11 @@ if ($acesso == true){
 		$tipo    = $dt['tipo'];
 	}// foreach
 	if ($tipo == 'user'){
-		header("Refresh: 0;url=../u");
+		header("Refresh: 0;url=../painel.php");
 	}elseif ($tipo == 'suprimentos'){
-		header("Refresh: 0;url=../s");
+		header("Refresh: 0;url=../painel.php");
 	}elseif ($tipo == 'gerente'){
-		header("Refresh: 0;url=../g");
+		header("Refresh: 0;url=../painel.php");
 	}
 	$_SESSION['tipo'] = $tipo;
 }else{

@@ -1,0 +1,29 @@
+Usuário:
+    Consulta itens
+    Adiciona / Remove itens a RM
+    Grava RM
+    Edita somente suas RMs
+    Exclui somente suas RMs
+    Assina  somente suas RMs
+    Visualiza as RMs do Setor
+    Consulta assinaturas
+
+Supervisor:
+    Consulta itens
+    Adiciona / Remove itens a RM
+    Grava RM
+    Edita as RMs do setor
+    Exclui as RMs do setor
+    Assina  somente suas RMs
+    Visualiza as RMs do Setor
+    Consulta assinaturas
+
+Gerente:
+    Consulta itens
+    Adiciona / Remove itens a RM
+    Grava RM
+    Edita as RMs do setor
+    Exclui as RMs do setor
+    Visualiza as RMs do Setor
+    Consulta assinaturas
+    Assina RM para aprovação

@@ -1,0 +1,7 @@
+Painel:
+    Criar coluna de assinatura do Usuário
+
+Nova RM:
+    Na ação gravar, criar a assinatura do Usuário.
+
+Na ação assinatura, a chave esta sendo enviada via GET

@@ -3,7 +3,7 @@ function assinar(rm){
     //confirm('Tem certeza que quer assinar esta RM?')
     var dados = cpf+rm.toString();
     $.ajax({
-        url: '../scripts/ajaxAss.php',
+        url: './scripts/ajaxAss.php',
         method: 'GET',
         data: {chave:dados, id_rm:rm}
     }).done(function(resposta){

@@ -7,13 +7,13 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <title>RM Online - RM</title>
 </head>
 <?php
-require_once("config.php");
-require_once("connect.php");
-require_once("database.php");
+require_once("./dbscripts/config.php");
+require_once("./dbscripts/connect.php");
+require_once("./dbscripts/database.php");
 
 $user = $_SESSION['user'];
 $sw   = $_SESSION['sw']; 
@@ -73,7 +73,7 @@ else{
 	<colgroup width="95"></colgroup>
 	<colgroup width="110"></colgroup>
 	<tr>
-		<td style="border: 1px solid #000000;" colspan=5 height="59" align="center" valign=middle><img src="img/logo-concer.png" width=88 height=50 hspace=28 vspace=5><b><font size=5 color="#000000">REQUISI&Ccedil;&Atilde;O DE MATERIAIS
+		<td style="border: 1px solid #000000;" colspan=5 height="59" align="center" valign=middle><img src="./img/logo-concer.png" width=88 height=50 hspace=28 vspace=5><b><font size=5 color="#000000">REQUISI&Ccedil;&Atilde;O DE MATERIAIS
 		</font></b></td>
 		<td style="border: 1px solid #000000;" colspan=4 align="center" valign=bottom><font color="#000000">PRIORIDADE:<?php print($tipo); ?></font></td>
 		</tr>
@@ -103,8 +103,8 @@ else{
         $busca_itens = DBRead('solicita', "WHERE id_rm='$id_rm'");
 
             if ($busca_itens == true){
-				$busca_ass = DBRead('rm', "WHERE id_rm='$id_rm'");
-                $assinatura = isset($busca_ass[0]['assinatura'])?"<div  style='text-align:center'><strong>".$busca_ass[0]['assinatura']."<strong></div>":' Não assinado';
+				$busca_ass = DBRead('assinatura', "WHERE id_rm='$id_rm' AND id_func='$id_func'");
+                $assinatura_g = isset($busca_ass[0]['id_assinatura'])?"<div  style='text-align:center'><strong>".$busca_ass[0]['ass']."<strong></div>":' Não assinado';
 				foreach ($busca_itens as $dt){
                     print('
                     
@@ -125,7 +125,7 @@ else{
     ?>
 	<tr>
 		<td style="border: 1px solid #000000;" colspan=4 rowspan=2 height="54" align="left" valign=top><font color="#000000">ASS REQUISITANTE</font></td>
-		<td style="border: 1px solid #000000;" rowspan=2 align="left" valign=top><font color="#000000">ASS AUTORIZA&Ccedil;&Atilde;O<br/><div id="ass"><?php print($assinatura." "); ?></div><button id="btn_ass" onclick="assinar(<?php echo($id_rm); ?>)"> Assinar</button></font></td>
+		<td style="border: 1px solid #000000;" rowspan=2 align="left" valign=top><font color="#000000">ASS AUTORIZA&Ccedil;&Atilde;O<br/><div id="ass"><?php print($assinatura_g." "); ?></div><button id="btn_ass" onclick="assinar(<?php echo($id_rm); ?>)"> Assinar</button></font></td>
 		<td style="border: 1px solid #000000;" colspan=4 rowspan=2 align="left" valign=top><font color="#000000">ASS ALMOXARIFADO</font></td>
 		</tr>
 	<tr>
@@ -138,8 +138,8 @@ else{
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
 		<td align="left" valign=bottom><font color="#000000"><br></font></td>
-		<td align="left" valign=bottom><font color="#000000"><a href="panel.php">histórico</a></font></td>
-		<td align="left" valign=bottom><font color="#000000"><a href="panel.php">voltar</a></font></td>
+		<td align="left" valign=bottom><font color="#000000"><a href="#">histórico</a></font></td>
+		<td align="left" valign=bottom><font color="#000000"><a href="./painel.php">voltar</a></font></td>
 	</tr>
 </table>
 
@@ -149,8 +149,8 @@ else{
     ?>
 
     </div>
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/scripts.js"></script>
 
 </body>
 </html>
